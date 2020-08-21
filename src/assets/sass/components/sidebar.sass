@@ -1,0 +1,46 @@
+@import "../variables"
+@import "../mixins/breakpoints"
+
+.sidebar
+  flex: 0 0 auto
+  width: 100%
+  padding: 1.5625rem 1.25rem 0
+
+  &__inner
+    position: relative
+    padding: 25px 20px 0
+
+@include breakpoint-sm
+  .sidebar
+    &__inner
+      padding: 30px 20px 0
+      &:after
+        background: $color-gray-border
+        background: linear-gradient(to bottom, $color-gray-border 0%, $color-gray-border 48%, $color-white 100%)
+        position: absolute
+        content: ''
+        width: 1px
+        height: 540px
+        top: 30px
+        right: -10px
+        bottom: 0
+
+@include breakpoint-md
+  .sidebar
+    padding: 2.5rem
+    width: 250px
+    min-height: 90vh
+
+    &__inner
+      padding: 40px
+
+    &::after
+      background: #e6e6e6
+      background: linear-gradient(180deg,#e6e6e6 0,#e6e6e6 48%,#fff)
+      position: absolute
+      content: ""
+      width: .0625rem
+      height: 100%
+      top: 30px
+      left: 330px
+      bottom: 0
