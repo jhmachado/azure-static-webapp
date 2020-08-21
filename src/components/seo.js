@@ -3,6 +3,13 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 
 function SEO({ author, description, lang, meta, title }) {
+  if (typeof author !== 'undefined') {
+    [{
+      name: `twitter:creator`,
+      content: author.name,
+    }].concat(meta);
+  }
+
   return (
     <Helmet
       htmlAttributes={{
@@ -30,10 +37,6 @@ function SEO({ author, description, lang, meta, title }) {
         {
           name: `twitter:card`,
           content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: author.name,
         },
         {
           name: `twitter:title`,
